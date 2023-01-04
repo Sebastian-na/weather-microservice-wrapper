@@ -6,6 +6,7 @@ const weather = require("./routes/weather")
 const app = express()
 
 app.use(express.json())
+
 app.use(cors({
     origin: FRONT_URL
 }))
