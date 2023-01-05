@@ -1,7 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const { PORT, FRONT_URL } = require("./config")
-const weather = require("./routes/weather")
+const v1 = require("./src/v1/app")
 
 const app = express()
 
@@ -11,8 +11,8 @@ app.use(cors({
     origin: FRONT_URL
 }))
 
-const root = "/api/v1"
-app.use(`${root}/weather`, weather)
+const root = "/api"
+app.use(`${root}/v1`, v1)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
